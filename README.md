@@ -1,0 +1,1 @@
+My website is a dual page website that works as a products and cart page, you can add items to the cart 
