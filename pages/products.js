@@ -1,18 +1,8 @@
 (function () {
-	const cartStorageKey = "orbit-ball-cart";
 	const money = new Intl.NumberFormat("en-US", {
 		style: "currency",
 		currency: "USD"
 	});
-
-	function readCart() {
-		try {
-			const storedCart = JSON.parse(localStorage.getItem(cartStorageKey) || "[]");
-			return Array.isArray(storedCart) ? storedCart : [];
-		} catch {
-			return [];
-		}
-	}
 
 	function updateCartHeader(cartItems) {
 		const cartCount = document.querySelector("#cart-count");
@@ -24,7 +14,7 @@
 	}
 
 	function saveCart(cartItems) {
-		localStorage.setItem(cartStorageKey, JSON.stringify(cartItems));
+		window.cartStorage.saveCart(cartItems);
 		updateCartHeader(cartItems);
 	}
 
@@ -100,7 +90,7 @@
 
 	document.addEventListener("DOMContentLoaded", function () {
 		const productList = document.querySelector("#product-list");
-		const cartItems = readCart();
+		const cartItems = window.cartStorage.loadCart();
 
 		if (!productList || !Array.isArray(window.products)) {
 			return;
