@@ -26,7 +26,7 @@ nav {
 
 .prod-li {
     margin-top: 2.5px;
-    margin-bottom: 2.5px;
+    margin-bottom: 3px;
 }
 
 nav h1,
@@ -78,7 +78,10 @@ main {
 
 section {
     max-width: 1080px;
+    margin-top: 32px;
     margin-bottom: 32px;
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 section h2 {
